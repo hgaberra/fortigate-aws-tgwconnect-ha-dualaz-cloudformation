@@ -1,6 +1,6 @@
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "(v2.0) Deploy a security VPC for an active-active FGT & TGW Connect design with 6 subnets (Public, Private, and TgwAttach) across 2x Availability Zones.",
+	"Description": "(v2.1) Deploy a security VPC for an active-active FGT & TGW Connect design with 6 subnets (Public, Private, and TgwAttach) across 2x Availability Zones.",
 	"Metadata": {
 		"AWS::CloudFormation::Interface": {
 			"ParameterGroups": [
@@ -1241,7 +1241,13 @@
 								{
 									"Effect": "Allow",
 									"Action": [
-										"ec2:Describe*",
+										"ec2:DescribeInstances",
+										"ec2:DescribeRouteTables",
+										"ec2:DescribeAddresses",
+										"ec2:AssociateAddress",
+										"ec2:AssignPrivateIpAddresses",
+										"ec2:UnassignPrivateIpAddresses",
+										"ec2:ReplaceRoute",
 										"eks:DescribeCluster",
 										"eks:ListClusters",
 										"inspector:DescribeFindings",
