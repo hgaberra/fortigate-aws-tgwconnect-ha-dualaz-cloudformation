@@ -1,6 +1,6 @@
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "(v2.7) Deploy a security VPC for an active-active FGT & TGW Connect design with 6 subnets (Public, Private, and TgwAttach) across 2x Availability Zones.",
+	"Description": "(v2.9) Deploy a security VPC for an active-active FGT & TGW Connect design with 6 subnets (Public, Private, and TgwAttach) across 2x Availability Zones.",
 	"Metadata": {
 		"AWS::CloudFormation::Interface": {
 			"ParameterGroups": [
@@ -395,13 +395,21 @@
 	},
 	"Conditions": {
 		"CreateVersion6": {
+			"Fn::Equals": [
+				{
+					"Ref": "FortiOSVersion"
+				},
+				"6.4.x"
+			]
+		},
+		"CreateVersion7": {
 			"Fn::Or": [
 				{
 					"Fn::Equals": [
 						{
 							"Ref": "FortiOSVersion"
 						},
-						"6.2.x"
+						"7.0.x"
 					]
 				},
 				{
@@ -409,17 +417,9 @@
 						{
 							"Ref": "FortiOSVersion"
 						},
-						"6.4.x"
+						"7.2.x"
 					]
 				}
-			]
-		},
-		"CreateVersion7": {
-			"Fn::Equals": [
-				{
-					"Ref": "FortiOSVersion"
-				},
-				"7.0.x"
 			]
 		}
 	},
