@@ -1,6 +1,6 @@
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "(v2.9) Deploy a security VPC for an active-active FGT & TGW Connect design with 6 subnets (Public, Private, and TgwAttach) across 2x Availability Zones.",
+	"Description": "(v2.9) Deploy a security VPC for an active-passive FGT & TGW Connect design with 6 subnets (Public, Private, and TgwAttach) across 2x Availability Zones.",
 	"Metadata": {
 		"AWS::CloudFormation::Interface": {
 			"ParameterGroups": [
